@@ -1,0 +1,22 @@
+{
+  "name": "api.socket.pa8",
+  "version": "1.0.0",
+  "author": "henrique.rodrigues7@hotmail.com",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts",
+    "start:prod": "node dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrique945/api.socket.pa8.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.9.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  }
+}
