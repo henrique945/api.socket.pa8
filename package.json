@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "author": "henrique.rodrigues7@hotmail.com",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/index.ts",
     "start:prod": "node dist/main.js",
     "build": "webpack --config webpack.config.js"
