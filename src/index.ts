@@ -1,6 +1,5 @@
 import { customAlphabet } from 'nanoid';
 import { getDatabaseConnection } from './database';
-import { TempEntity } from './entities/temp.entity';
 import { UserEntity } from './entities/user.entity';
 
 require('dotenv').config();
@@ -15,19 +14,6 @@ const createApp = async () => {
 
   app.get('/', (req, res) => {
     res.send('<h1>PA8</h1>');
-  });
-
-  app.get('/temp', (req, res) => {
-    console.log(req.params);
-    res.json({ temperature: 10 });
-  });
-
-  app.post('/temp', async (req, res) => {
-    console.log(req.body);
-
-    const tempRepository = db.getRepository(TempEntity);
-    const result = await tempRepository.save({ avg: 50, name: 'Henrique' });
-    res.json(result);
   });
 
   app.get('/user', async (req, res) => {
@@ -46,6 +32,19 @@ const createApp = async () => {
 
     const user = await userRepository.save(req.body);
     res.json(user);
+  });
+
+  app.put('/user/:id', async (req, res) => {
+    const user = await userRepository.findOne({ where: { id: req.params.id } });
+
+    if (!user)
+      return res.json({ error: 'Usuário não encontrado.' });
+
+    if (req.body.name)
+      user.name = req.body.name;
+
+    const userUpdated = await userRepository.save(user);
+    res.json(userUpdated);
   });
 
   app.delete('/user/:id', async (req, res) => {
