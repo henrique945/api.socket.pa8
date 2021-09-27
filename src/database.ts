@@ -1,5 +1,4 @@
 import { Connection, ConnectionOptions, createConnection } from 'typeorm';
-import { TempEntity } from './entities/temp.entity';
 import { UserEntity } from './entities/user.entity';
 
 export async function getDatabaseConnection(): Promise<Connection> {
@@ -9,7 +8,6 @@ export async function getDatabaseConnection(): Promise<Connection> {
     database: process.env.DB_PATH || '',
     logger: 'advanced-console',
     entities: [
-      TempEntity,
       UserEntity,
     ],
     synchronize: true,

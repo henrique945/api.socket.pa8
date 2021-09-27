@@ -18,6 +18,12 @@ export class UserEntity {
   public id: number;
 
   /**
+   * O nome do usuário
+   */
+  @Column({ nullable: false })
+  public name?: string;
+
+  /**
    * O email do usuário
    */
   @Column({ nullable: false })
