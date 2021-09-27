@@ -1,5 +1,6 @@
 import { Connection, ConnectionOptions, createConnection } from 'typeorm';
 import { TempEntity } from './entities/temp.entity';
+import { UserEntity } from './entities/user.entity';
 
 export async function getDatabaseConnection(): Promise<Connection> {
   const options: ConnectionOptions = {
@@ -9,6 +10,7 @@ export async function getDatabaseConnection(): Promise<Connection> {
     logger: 'advanced-console',
     entities: [
       TempEntity,
+      UserEntity,
     ],
     synchronize: true,
   };
