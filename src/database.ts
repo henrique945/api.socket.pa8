@@ -1,3 +1,4 @@
+import { MetricEntity } from './entities/metric.entity';
 import { Connection, ConnectionOptions, createConnection } from 'typeorm';
 import { UserEntity } from './entities/user.entity';
 
@@ -9,6 +10,7 @@ export async function getDatabaseConnection(): Promise<Connection> {
     logger: 'advanced-console',
     entities: [
       UserEntity,
+      MetricEntity,
     ],
     synchronize: true,
   };

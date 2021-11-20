@@ -1,4 +1,6 @@
-import { customAlphabet } from 'nanoid';
+import { MetricController } from './controllers/metric.controller';
+import { MetricEntity } from './entities/metric.entity';
+import { UserController } from './controllers/user.controller';
 import { getDatabaseConnection } from './database';
 import { UserEntity } from './entities/user.entity';
 
@@ -10,53 +12,19 @@ app.use(express.json());
 
 const createApp = async () => {
   const db = await getDatabaseConnection();
+
   const userRepository = db.getRepository(UserEntity);
+  const userController = new UserController(userRepository);
+
+  const metricRepository = db.getRepository(MetricEntity);
+  const metricController = new MetricController(metricRepository);
 
   app.get('/', (req, res) => {
     res.send('<h1>PA8</h1>');
   });
 
-  app.get('/user', async (req, res) => {
-    const users = await userRepository.find();
-    res.json(users);
-  });
-
-  app.post('/user', async (req, res) => {
-    const alreadyHasEmail = await userRepository.findOne({ where: { email: req.body.email } });
-
-    if (alreadyHasEmail)
-      return res.json({ error: 'Email já cadastrado.' });
-
-    const nanoid = customAlphabet('ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890', 6);
-    req.body.forgetPasswordCode = nanoid();
-
-    const user = await userRepository.save(req.body);
-    res.json(user);
-  });
-
-  app.put('/user/:id', async (req, res) => {
-    const user = await userRepository.findOne({ where: { id: req.params.id } });
-
-    if (!user)
-      return res.json({ error: 'Usuário não encontrado.' });
-
-    if (req.body.name)
-      user.name = req.body.name;
-
-    const userUpdated = await userRepository.save(user);
-    res.json(userUpdated);
-  });
-
-  app.delete('/user/:id', async (req, res) => {
-    const user = await userRepository.findOne({ where: { id: req.params.id } });
-
-    if (!user)
-      return res.json({ error: 'Usuário não encontrado.' });
-
-    const userDeleted = await userRepository.remove(user);
-
-    res.json(userDeleted);
-  });
+  app.use(userController.getRoutes());
+  app.use(metricController.getRoutes());
 
   app.listen(process.env.PORT, () => {
     console.log('listening on -> 3000');
