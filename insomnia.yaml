@@ -1,0 +1,247 @@
+_type: export
+__export_format: 4
+__export_date: 2021-11-20T22:02:27.954Z
+__export_source: insomnia.desktop.app:v2021.6.0
+resources:
+  - _id: req_693b07555dda4154bbe295a8c37ce7ed
+    parentId: fld_7014aec24e6a4a3695f9735b78e82f46
+    modified: 1637445415352
+    created: 1637445410489
+    url: "{{ _.baseUrl }}/user"
+    name: Get Users
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1637445410489
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_7014aec24e6a4a3695f9735b78e82f46
+    parentId: wrk_a4317a47957d43fd86755582afb671c6
+    modified: 1637445355374
+    created: 1637445355374
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1637445355374
+    _type: request_group
+  - _id: wrk_a4317a47957d43fd86755582afb671c6
+    parentId: null
+    modified: 1637445130924
+    created: 1637445130924
+    name: PA8
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_5f0bcf27becc41848106a3518fe0d331
+    parentId: fld_7014aec24e6a4a3695f9735b78e82f46
+    modified: 1637445660889
+    created: 1637445432718
+    url: "{{ _.baseUrl }}/user"
+    name: Create User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Test",
+        	"email": "test@email.com",
+        	"password": "teste"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_fe9c2b37ca554360833ab490df80fabc
+    authentication: {}
+    metaSortKey: -1637445331943.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_cf671ba6e3404938bd3cbf72e1caa182
+    parentId: fld_7014aec24e6a4a3695f9735b78e82f46
+    modified: 1637445594538
+    created: 1637445568638
+    url: "{{ _.baseUrl }}/user/3"
+    name: Update User
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Test 2"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_fe9c2b37ca554360833ab490df80fabc
+    authentication: {}
+    metaSortKey: -1637445292670.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_cba73c515a254800bcb670139f9d3236
+    parentId: fld_7014aec24e6a4a3695f9735b78e82f46
+    modified: 1637445665902
+    created: 1637445602274
+    url: "{{ _.baseUrl }}/user/5"
+    name: Delete User
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1637445273034.375
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1ea9cabb9d5c4c818f94a7f681db7bd2
+    parentId: fld_8fc30d245f8a4d7cad2f7bfd4ffae384
+    modified: 1637445383966
+    created: 1637445180315
+    url: "{{ _.baseUrl }}/metric/latest"
+    name: Get Latest Metric
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1637445253398
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_8fc30d245f8a4d7cad2f7bfd4ffae384
+    parentId: wrk_a4317a47957d43fd86755582afb671c6
+    modified: 1637445133938
+    created: 1637445133938
+    name: Metric
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1637445133938
+    _type: request_group
+  - _id: req_1d2cc9db48344378b77acc9eece5550b
+    parentId: fld_8fc30d245f8a4d7cad2f7bfd4ffae384
+    modified: 1637445382950
+    created: 1637445138153
+    url: "{{ _.baseUrl }}/metric"
+    name: Get Metrics
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1637445253348
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_0156437f86bd487592c9f8bedf47b2ee
+    parentId: fld_8fc30d245f8a4d7cad2f7bfd4ffae384
+    modified: 1637445396512
+    created: 1637445253298
+    url: "{{ _.baseUrl }}/metric"
+    name: Create Metric
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"humidity": 10,
+        	"temperature": 22
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_966eac716f5f408182f6e5321e09c5e6
+    authentication: {}
+    metaSortKey: -1637445253298
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_115ca8e6a5db6feb73ae673d4c426c00167bfd98
+    parentId: wrk_a4317a47957d43fd86755582afb671c6
+    modified: 1637445145008
+    created: 1637445130948
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: {}
+    color: null
+    isPrivate: false
+    metaSortKey: 1637445130948
+    _type: environment
+  - _id: jar_115ca8e6a5db6feb73ae673d4c426c00167bfd98
+    parentId: wrk_a4317a47957d43fd86755582afb671c6
+    modified: 1637445130954
+    created: 1637445130954
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_a8e8aa699d6a4b10ba996ad1255968fb
+    parentId: wrk_a4317a47957d43fd86755582afb671c6
+    modified: 1637445130934
+    created: 1637445130934
+    fileName: PA8
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_6eea419523a74961a9da6a6867856fb7
+    parentId: env_115ca8e6a5db6feb73ae673d4c426c00167bfd98
+    modified: 1637445161519
+    created: 1637445147962
+    name: LOCAL
+    data:
+      baseUrl: http://localhost:3000
+    dataPropertyOrder:
+      "&":
+        - baseUrl
+    color: null
+    isPrivate: false
+    metaSortKey: 1637445147962
+    _type: environment
