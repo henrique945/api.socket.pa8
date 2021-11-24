@@ -5,14 +5,24 @@ import { UserEntity } from './entities/user.entity';
 export async function getDatabaseConnection(): Promise<Connection> {
   const options: ConnectionOptions = {
     name: 'default',
-    type: 'sqlite',
-    database: process.env.DB_PATH || '',
+    type: 'postgres',
+    host: process.env.DB_HOST,
+    port: +process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     logger: 'advanced-console',
+    synchronize: true,
+    ssl: true,
+    extra: {
+      ssl: {
+        "rejectUnauthorized": false
+      }
+    },
     entities: [
       UserEntity,
       MetricEntity,
     ],
-    synchronize: true,
   };
 
   return await createConnection(options);
