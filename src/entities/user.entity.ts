@@ -20,31 +20,31 @@ export class UserEntity {
   /**
    * O nome do usuário
    */
-  @Column({ nullable: false })
-  public name?: string;
+  @Column('text', { nullable: false })
+  public name: string;
 
   /**
    * O email do usuário
    */
-  @Column({ nullable: false })
+  @Column('text', { nullable: false })
   public email: string;
 
   /**
    * A senha do usuário
    */
-  @Column({ nullable: false, select: false })
+  @Column('text', { nullable: false, select: false })
   public password: string;
 
   /**
    * O código para quando o usuário esquecer a senha
    */
-  @Column({ nullable: false })
+  @Column('text', { nullable: false })
   public forgetPasswordCode: string;
 
   /**
    * As permissões do usuário
    */
-  @Column({ nullable: false, default: 'user' })
+  @Column('text', { nullable: false, default: 'user' })
   public roles: string;
 
 }
