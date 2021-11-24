@@ -6,7 +6,8 @@
     "start": "ts-node src/index.ts",
     "start:dev": "nodemon --watch ./**/*.ts --exec ts-node src/index.ts",
     "start:prod": "node dist/main.js",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "deploy:heroku": "git push heroku master"
   },
   "repository": {
     "type": "git",
